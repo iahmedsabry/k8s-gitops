@@ -6,8 +6,7 @@ data:
   index.html: |
     <html>
       <body>
-        <h1>Hello Ya BOLBOL</h1>
-        <p>Elly hynml msh hykml, Esha lel kalam</p>
+        <h1>Hello World!</h1>
         <p>This is deployed via ArgoCD</p>
       </body>
     </html>
