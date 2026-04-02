@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/iahmedsabry/k8s-gitops
     targetRevision: HEAD
-    path: argocd
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
