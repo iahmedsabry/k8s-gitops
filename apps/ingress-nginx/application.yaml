@@ -12,8 +12,12 @@ spec:
     helm:
       values: |
         controller:
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
+
           service:
             type: NodePort
+
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
