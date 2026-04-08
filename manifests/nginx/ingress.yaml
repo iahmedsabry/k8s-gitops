@@ -9,11 +9,11 @@ spec:
 
   tls:
     - hosts:
-        - nginx.3-92-228-192.nip.io
+        - nginx.54-90-238-30.nip.io
       secretName: nginx-tls
 
   rules:
-    - host: nginx.3-92-228-192.nip.io
+    - host: nginx.54-90-238-30.nip.io
       http:
         paths:
           - path: /
