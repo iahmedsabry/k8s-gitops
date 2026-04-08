@@ -12,11 +12,12 @@ spec:
     helm:
       values: |
         controller:
+          kind: DaemonSet
           hostNetwork: true
           dnsPolicy: ClusterFirstWithHostNet
 
           service:
-            type: NodePort
+            type: ClusterIP
 
   destination:
     server: https://kubernetes.default.svc
