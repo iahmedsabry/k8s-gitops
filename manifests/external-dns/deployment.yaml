@@ -25,5 +25,6 @@ spec:
         - --policy=upsert-only
         - --aws-zone-type=private
         - --publish-internal-services
+        - --connector-source=node
         - --registry=txt
         - --txt-owner-id=Z09984881B2BIYHPB8Z6Y # Confirmed from your previous step
