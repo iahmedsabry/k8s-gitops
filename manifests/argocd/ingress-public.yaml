@@ -4,20 +4,20 @@ metadata:
   name: argocd-server-ingress
   namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-http
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/group.name: k8s-apps
+    alb.ingress.kubernetes.io/healthcheck-path: /argocd/healthz
+    alb.ingress.kubernetes.io/security-groups: sg-00720f5a3027e29d2 
+    
+
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - argocd.34.228.165.64.nip.io
-      secretName: argocd-server-tls
+  ingressClassName: alb
   rules:
-    - host: argocd.34.228.165.64.nip.io
-      http:
+    - http:
         paths:
-          - path: /
+          - path: /argocd
             pathType: Prefix
             backend:
               service:

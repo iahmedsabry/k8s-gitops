@@ -16,7 +16,7 @@ spec:
           create: true
           name: aws-load-balancer-controller
         region: us-east-1
-        vpcId: vpc-06f1771a119b45361 # Replace with your VPC ID from Terraform
+        vpcId: vpc-0befd06274cdc70dc
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

@@ -1,15 +1,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-ingress-internal # Different name!
+  name: argocd-server-ingress-internal
   namespace: argocd
   annotations:
-    # This triggers the AWS Route 53 magic
+    # 1. Essential ALB Settings
+    alb.ingress.kubernetes.io/ingress.class: alb
+    # This makes it INTERNAL (No public IP)
+    alb.ingress.kubernetes.io/scheme: internal 
+    alb.ingress.kubernetes.io/target-type: instance
+    
+    # 2. Networking link
+    alb.ingress.kubernetes.io/security-groups: sg-00720f5a3027e29d2 
+    
+    # 3. Backend Logic (Argo CD insecure mode)
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    
+    # 4. Route 53 Integration
+    # External-DNS will see this and create argocd.insightlab.internal in your Private Zone
     external-dns.alpha.kubernetes.io/hostname: argocd.insightlab.internal
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
-  ingressClassName: nginx
-  # Note: No TLS block here because we can't use Let's Encrypt for .internal
+  ingressClassName: alb
   rules:
     - host: argocd.insightlab.internal
       http:
@@ -20,4 +31,4 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  number: 80 # Matching your existing working port
+                  number: 80
