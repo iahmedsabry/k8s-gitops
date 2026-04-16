@@ -16,7 +16,7 @@ spec:
           create: true
           name: aws-load-balancer-controller
         region: us-east-1
-        vpcId: vpc-05b79652ed9ac3ac0
+        vpcId: vpc-0fda3252c40ee7ad3
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
