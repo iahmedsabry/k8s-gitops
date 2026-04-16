@@ -10,6 +10,8 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: sg-08f123e1efc82067c 
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     external-dns.alpha.kubernetes.io/hostname: argocd.insightlab.internal
+    alb.ingress.kubernetes.io/healthcheck-success-codes: "200,307"
+    
 spec:
   ingressClassName: alb
   rules:

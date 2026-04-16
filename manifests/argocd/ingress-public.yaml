@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/group.name: k8s-apps
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
     alb.ingress.kubernetes.io/security-groups: sg-08f123e1efc82067c 
+    alb.ingress.kubernetes.io/healthcheck-success-codes: "200,307"
     
 
 spec:
