@@ -9,7 +9,7 @@ metadata:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/group.name: k8s-apps
     alb.ingress.kubernetes.io/healthcheck-path: /argocd/healthz
-    alb.ingress.kubernetes.io/security-groups: sg-00720f5a3027e29d2 
+    alb.ingress.kubernetes.io/security-groups: sg-079748fee3a328ef9 
     
 
 spec:

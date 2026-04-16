@@ -4,20 +4,11 @@ metadata:
   name: argocd-server-ingress-internal
   namespace: argocd
   annotations:
-    # 1. Essential ALB Settings
     alb.ingress.kubernetes.io/ingress.class: alb
-    # This makes it INTERNAL (No public IP)
     alb.ingress.kubernetes.io/scheme: internal 
     alb.ingress.kubernetes.io/target-type: instance
-    
-    # 2. Networking link
-    alb.ingress.kubernetes.io/security-groups: sg-00720f5a3027e29d2 
-    
-    # 3. Backend Logic (Argo CD insecure mode)
+    alb.ingress.kubernetes.io/security-groups: sg-079748fee3a328ef9 
     alb.ingress.kubernetes.io/backend-protocol: HTTP
-    
-    # 4. Route 53 Integration
-    # External-DNS will see this and create argocd.insightlab.internal in your Private Zone
     external-dns.alpha.kubernetes.io/hostname: argocd.insightlab.internal
 spec:
   ingressClassName: alb
