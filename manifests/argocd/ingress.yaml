@@ -9,7 +9,6 @@ metadata:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/group.name: k8s-apps
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
-    alb.ingress.kubernetes.io/security-groups: sg-00020766ee4d3247b 
     alb.ingress.kubernetes.io/healthcheck-success-codes: "200"
 
 
