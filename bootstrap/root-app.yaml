@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/iahmedsabry/k8s-gitops
+    repoURL: https://github.com/iahmedsabry/k8s-gitops.git
     targetRevision: HEAD
     path: apps
     directory:
