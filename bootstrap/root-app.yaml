@@ -1,4 +1,3 @@
-# bootstrap.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,15 +5,17 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   source:
-    repoURL: https://github.com/iahmedsabry/k8s-gitops.git
-    targetRevision: HEAD
-    path: apps
-    directory:
-      recurse: true
+    repoURL: https://github.com/iahmedsabry/k8s-gitops
+    chart: argocd
+    targetRevision: main
+    path: .
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argocd
+
   syncPolicy:
     automated:
       prune: true
