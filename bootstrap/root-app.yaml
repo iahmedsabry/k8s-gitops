@@ -7,10 +7,9 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/iahmedsabry/k8s-gitops
-    chart: argocd
+    repoURL: https://github.com/iahmedsabry/k8s-gitops.git
     targetRevision: main
-    path: .
+    path: root
 
   destination:
     server: https://kubernetes.default.svc
