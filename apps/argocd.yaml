@@ -7,9 +7,12 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/iahmedsabry/k8s-gitops.git
-    targetRevision: main
-    path: argocd
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: 5.51.6
+    helm:
+      valueFiles:
+        - values/argocd-values.yaml
 
   destination:
     server: https://kubernetes.default.svc
@@ -19,3 +22,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
