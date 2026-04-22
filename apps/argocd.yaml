@@ -24,8 +24,12 @@ spec:
 
           extraArgs:
             - --insecure
-            
+
+        nameOverride: argocd
         fullnameOverride: argocd
+
+        commonLabels:
+          app.kubernetes.io/instance: argocd
 
   destination:
     server: https://kubernetes.default.svc
