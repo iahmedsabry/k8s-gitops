@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-core
+  name: argo-cd-core
   namespace: argocd
 
 spec:
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/iahmedsabry/k8s-gitops.git
     targetRevision: main
-    path: apps/argocd/core
+    path: apps/argo-cd/core
 
   destination:
     server: https://kubernetes.default.svc

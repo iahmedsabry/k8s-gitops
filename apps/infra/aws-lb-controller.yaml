@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  argocd.argoproj.io/sync-wave: "-1"
-  name: root-argocd
+  name: infra-aws-lb-controller
   namespace: argocd
+  
 spec:
   project: default
 
   source:
     repoURL: https://github.com/iahmedsabry/k8s-gitops.git
     targetRevision: main
-    path: apps/argocd
+    path: apps/infra/aws-lb-controller
 
   destination:
     server: https://kubernetes.default.svc
@@ -20,9 +20,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    retry:
-      limit: 5
-      backoff:
-        duration: 10s
-        factor: 2
-        maxDuration: 2m
