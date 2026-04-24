@@ -17,6 +17,9 @@ spec:
         configs:
           params:
             server.insecure: true
+          
+          secret:
+            argocdServerSecretKey: "T/QlZtmWcp1E9Hjvsc26bd85dY8YpkLAt4a5+yFld8o="
 
         server:
           service:
@@ -29,20 +32,11 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd
 
-  ignoreDifferences:
-    - group: ""
-      kind: Secret
-      name: argocd-secret
-      namespace: argocd
-      jsonPointers:
-        - /data
-
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
-
+      
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
