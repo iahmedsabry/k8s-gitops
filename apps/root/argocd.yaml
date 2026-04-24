@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   argocd.argoproj.io/sync-wave: "-1"
-  name: argocd
+  name: root-argocd
   namespace: argocd
 spec:
   project: default
