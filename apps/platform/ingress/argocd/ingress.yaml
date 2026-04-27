@@ -12,11 +12,6 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: sg-0ab958ae882220902
 
 spec:
-  tls:
-  - hosts:
-    - argocd.local
-    secretName: argocd-tls
-
   rules:
   - host: argocd.local
     http:
