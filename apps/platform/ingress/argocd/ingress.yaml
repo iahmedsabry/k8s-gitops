@@ -12,13 +12,19 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: sg-0ab958ae882220902
 
 spec:
+  tls:
+  - hosts:
+    - argocd.local
+    secretName: argocd-tls
+
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+  - host: argocd.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
