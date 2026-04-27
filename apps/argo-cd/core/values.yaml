@@ -1,0 +1,13 @@
+configs:
+  params:
+    server.insecure: true
+
+  secret:
+    argocdServerSecretKey: "T/QlZtmWcp1E9Hjvsc26bd85dY8YpkLAt4a5+yFld8o="
+
+server:
+  service:
+    type: NodePort
+
+  extraArgs:
+    - --insecure

@@ -13,20 +13,22 @@ spec:
     chart: argo-cd
     targetRevision: 5.51.6
     helm:
-      values: |
-        configs:
-          params:
-            server.insecure: true
+      valueFiles:
+        - values.yaml
+      # parameters |
+      #   configs:
+      #     params:
+      #       server.insecure: true
           
-          secret:
-            argocdServerSecretKey: "T/QlZtmWcp1E9Hjvsc26bd85dY8YpkLAt4a5+yFld8o="
+      #     secret:
+      #       argocdServerSecretKey: "T/QlZtmWcp1E9Hjvsc26bd85dY8YpkLAt4a5+yFld8o="
 
-        server:
-          service:
-            type: NodePort
+      #   server:
+      #     service:
+      #       type: NodePort
 
-          extraArgs:
-            - --insecure
+      #     extraArgs:
+      #       - --insecure
 
   destination:
     server: https://kubernetes.default.svc
