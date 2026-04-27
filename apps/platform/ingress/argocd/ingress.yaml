@@ -9,7 +9,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
     alb.ingress.kubernetes.io/group.name: k8s-apps
-    alb.ingress.kubernetes.io/security-groups: sg-001af8e52b096aeb1
+    alb.ingress.kubernetes.io/security-groups: sg-015b0f30440084a4a
 
 spec:
   rules:
